@@ -15,7 +15,7 @@ app.get("/images", async (req, res) => {
             for(item of items){
                  temp.push(item.src);      
              }
-            return temp.splice(2);
+            return temp.splice(2,20);
        });
 
         await browser.close();

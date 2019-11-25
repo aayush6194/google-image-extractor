@@ -1,9 +1,28 @@
-<form method="GET" action="/images">
-    <input type="text" name="image">
-    <input type="submit" >
-</form>
-<%if (searched) { %>
-    <% for (let i = 0; i <=10;  i++ ) { %>
-        <br/>  <img src=<%= images[i] %> /> 
-    <% } %>
-    <% } %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="Description" content="Google Image Extractor">
+    <!-- <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.png" /> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="theme-color" content="#000000" />
+    <title>Google Image Extractor</title>
+  </head>
+  <body>
+    <div id="root">
+            <form method="GET" action="/images">
+                <input type="text" name="image">
+                <input type="submit" >
+            </form>
+            <%if (searched) { %>
+                <% for (const image of images) { %>
+                    <br/>  <img src=<%= image %> /> 
+                <% } %>
+                <% } %>
+
+    </div>
+  </body>
+</html>
+
