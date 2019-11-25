@@ -11,16 +11,18 @@
     <title>Google Image Extractor</title>
   </head>
   <body>
-    <div id="root">
+    <div class="container">
             <form method="GET" action="/images">
-                <input type="text" name="image">
-                <input type="submit" >
+                <input type="text" name="image" placeholder="Search..">
+                <input type="submit" class="btn">
             </form>
             <%if (searched) { %>
+                <div>
                 <% for (const image of images) { %>
-                    <br/>  <img src=<%= image %> /> 
+                  <div class="center"><img  src=<%= image %> ></div> 
                 <% } %>
                 <% } %>
+                </div>
 
     </div>
   </body>
