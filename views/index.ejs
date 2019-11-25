@@ -1,0 +1,9 @@
+<form method="GET" action="/images">
+    <input type="text" name="image">
+    <input type="submit" >
+</form>
+<%if (searched) { %>
+    <% for (let i = 0; i <=10;  i++ ) { %>
+        <br/>  <img src=<%= images[i] %> /> 
+    <% } %>
+    <% } %>
