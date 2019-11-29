@@ -3,11 +3,12 @@ const express = require('express');
 const ejs = require('ejs');
 const app = express();
 app.set('view engine', 'ejs');
-
+app.use( express.static( "public" ) );
 app.get("/images", async (req, res) => {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     const { image }= req.query;
+    console.log(image);
      await page.goto(`https://www.google.com/search?q=${image}&tbm=isch`, {waitUntil: 'load'});
     let images = await page.evaluate(()=>{ 
         let items = document.querySelectorAll('img');
@@ -15,6 +16,7 @@ app.get("/images", async (req, res) => {
             for(item of items){
                  temp.push(item.src);      
              }
+
             return temp.splice(2,20);
        });
 
